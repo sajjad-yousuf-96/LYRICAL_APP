@@ -1,13 +1,13 @@
-from ast import keyword
-from click import option
-from numpy import product
+# from ast import keyword
+# from click import option
+# from numpy import product
 from selenium import webdriver
 from bs4 import BeautifulSoup as bs
-import pandas as pd
+# import pandas as pd
 import re
 from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
-import time
+# import time
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
