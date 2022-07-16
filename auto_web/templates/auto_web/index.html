@@ -17,17 +17,51 @@
         <link href="{% static 'css/style.css' %}" rel="stylesheet" />
     </head>
     <style>
-        table{
+        table {
+            border-spacing: 1;
+            border-collapse: collapse;
+            background: white;
+            overflow: hidden;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
             border-style: groove;
-            border-width: 4px;
-        }
-        tr{
-            border-style: groove;
-        }
-        td,th{
-            
-            padding:13px 32px; 
-        }
+          }
+          
+          table td, table th {
+            padding-left: 8px;
+          }
+          table thead tr {
+            height: 60px;
+            background: #8c698a;
+          }
+          table tbody tr {
+            height: 50px;
+          }
+          table tbody tr:last-child {
+            border: 0;
+          }
+          table td, table th {
+            text-align: left;
+          }
+          table td.l, table th.l {
+            text-align: right;
+          }
+          table td.c, table th.c {
+            text-align: center;
+          }
+          table td.r, table th.r {
+            text-align: center;
+          }
+          .column1 {
+            width: 260px;
+            padding-left: 40px;
+          }
+          
+          .column2 {
+            width: 160px;
+          }
+                    
     </style>
     <body>
         <!-- Navigation-->
@@ -63,7 +97,24 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    <table class="table"    >
+                    <h4>Lyrics List</h4>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr class="table100-head">
+                                <th class="column1">Song Name</th>
+                                <th class="column2">Singer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for post in page_obj.object_list %}
+                                <tr>
+                                    <td class="column1"><a href="{% url 'lyrics_page' post.id  %}">{{post.song_name}}</a></td>
+                                    <td class="column2">{{post.song_artist}}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <!-- <table class="table">
                         <tr>
                             <th>Song Name</th>
                             <th>Singer</th>
@@ -71,10 +122,10 @@
                         {% for post in page_obj.object_list %}
                             <tr>
                                 <td><a href="{% url 'lyrics_page' post.id  %}">{{post.song_name}}</a></td>
-                                <!-- <td></td> -->
+                                <td></td>
                                 <td>{{post.song_artist}}</td>
                             </tr>
-                        {% endfor %}
+                        {% endfor %} -->
                     </table>
                 </div>
             </div>
