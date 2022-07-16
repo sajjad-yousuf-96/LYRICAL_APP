@@ -1,0 +1,6 @@
+selenium
+django
+webdriver-manager
+beautifulsoup4
+chromedriver-autoinstaller
+gunicorn
